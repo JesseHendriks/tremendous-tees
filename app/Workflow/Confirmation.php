@@ -3,10 +3,13 @@
 namespace App\Workflow;
 
 
-class Confirmation implements WorkflowObserver
+class Confirmation extends WorkflowObserver
 {
     public function update(WorkflowInterface $workflow)
     {
-        // TODO: Implement update() method.
+        // Verstuur een orderbevestiging per mail.
+
+
+        return 'Orderbevestiging verstuurd naar de klant.';
     }
 }

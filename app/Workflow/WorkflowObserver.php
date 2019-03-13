@@ -2,7 +2,7 @@
 
 namespace App\Workflow;
 
-interface WorkflowObserver
+abstract class WorkflowObserver
 {
-    public function update(WorkflowInterface $workflow);
+    abstract public function update(WorkflowInterface $workflow);
 }

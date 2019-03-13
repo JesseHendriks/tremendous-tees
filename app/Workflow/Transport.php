@@ -1,8 +1,12 @@
 <?php
 
-use App\Workflow\WorkflowObserver;
+namespace App\Workflow;
 
 class Transport extends WorkflowObserver
 {
-
+    public function update(WorkflowInterface $workflow)
+    {
+        // TODO: Implement update() method.
+        return true;
+    }
 }

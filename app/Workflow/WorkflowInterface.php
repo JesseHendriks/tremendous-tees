@@ -2,11 +2,11 @@
 
 namespace App\Workflow;
 
-interface WorkflowInterface
+abstract class WorkflowInterface
 {
-    public function attach(WorkflowObserver $observer);
+    abstract public function attach(WorkflowObserver $observer);
 
-    public function detach(WorkflowObserver $observer);
+    abstract public function detach(WorkflowObserver $observer);
 
-    protected function notify();
+    abstract protected function notify();
 }

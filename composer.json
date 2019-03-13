@@ -1,5 +1,5 @@
 {
-	"name": "JesseHendriks/tremendous-tees",
+	"name": "jessehendriks/tremendous-tees",
 	"description": "Applicatie voor de tremendous tees opdracht.",
 	"authors": [
 		{
@@ -14,5 +14,8 @@
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^8.0"
+	},
+	"require": {
+		"fzaninotto/faker": "^1.8"
 	}
 }

@@ -8,18 +8,23 @@ class OrderStrategy
 
     public function __construct($order_status)
     {
+        $order_status = strtoupper($order_status);
+
         switch ($order_status) {
             case 'OPEN':
-                $this->process = new OpenOrder();
+                $this->process = new OpenOrder;
                 break;
             case 'PENDING':
-                $this->process = new PendingOrder();
+                $this->process = new PendingOrder;
                 break;
             case 'COMPLETE':
-                $this->process = new CompleteOrder();
+                $this->process = new CompleteOrder;
                 break;
             case 'DONE':
-                // return 'order is complete';
+                throw new \Exception('De order is al verwerkt en verstuurd naar de klant.');
+                break;
+            default:
+                throw new \Exception('De order heeft een onjuiste status');
                 break;
         }
     }
