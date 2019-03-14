@@ -35,5 +35,6 @@ class Transaction extends WorkflowInterface
 
     public function getData()
     {
+
     }
 }

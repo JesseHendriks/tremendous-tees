@@ -10,6 +10,7 @@ class Confirmation extends WorkflowObserver
         // Verstuur een orderbevestiging per mail.
 
 
+
         return 'Orderbevestiging verstuurd naar de klant.';
     }
 }

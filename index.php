@@ -2,16 +2,48 @@
 
 include 'vendor/autoload.php';
 
+$customer = 'CST0000158';
+$ordered_products = [
+    [
+        'product_code' => 12341563,
+        'size' => 'L',
+        'amount' => 1,
+    ],
+    [
+        'product_code' => 12341785,
+        'size' => 'L',
+        'amount' => 2,
+    ],
+    [
+        'product_code' => 12341951,
+        'size' => 'L',
+        'amount' => 2,
+    ],
+    [
+        'product_code' => 12341952,
+        'size' => 'L',
+        'amount' => 1,
+    ],
+    [
+        'product_code' => 12341952,
+        'size' => 'M',
+        'amount' => 2,
+    ],
+    [
+        'product_code' => 12341563,
+        'size' => 'L',
+        'amount' => 2,
+    ],
+];
+
 use App\Order\OrderStrategy;
 
 try {
     $order = new OrderStrategy('open');
     echo $order->executeOrder(1234);
-} catch (\Exception $e){
+} catch (\Exception $e) {
     echo $e->getMessage();
 }
-
-
 
 
 ?>
