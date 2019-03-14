@@ -10,8 +10,8 @@
 		stopOnSkipped="false"
 		verbose="true">
 	<testsuites>
-		<testsuite name="UserTests">
-			<directory>tests/user</directory>
+		<testsuite name="OrderTest">
+			<directory>tests/order</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>

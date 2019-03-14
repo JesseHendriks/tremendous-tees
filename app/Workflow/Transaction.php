@@ -5,9 +5,9 @@ namespace App\Workflow;
 class Transaction extends WorkflowInterface
 {
     private $observers = [];
-    private $data = '';
+    private $data = [];
 
-    public function notify()
+    public function execute()
     {
         foreach ($this->observers as $observer) {
             $observer->update($this);
@@ -28,13 +28,14 @@ class Transaction extends WorkflowInterface
         }
     }
 
-    public function setData($order_id)
+    public function setData($data)
     {
-        $this->data[] = $order_id;
+        $this->data[] = $data;
+        $this->execute();
     }
 
     public function getData()
     {
-
+        return $this->data;
     }
 }

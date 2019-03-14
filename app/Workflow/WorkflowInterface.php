@@ -8,5 +8,8 @@ abstract class WorkflowInterface
 
     abstract public function detach(WorkflowObserver $observer);
 
-    abstract protected function notify();
+    abstract protected function execute();
+
+    abstract public function getData();
+
 }

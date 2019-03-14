@@ -1,4 +1,5 @@
-# Tremedous Tees
+Tremedous Tees
+===================
 Applicatie voor de tremendous tees opdracht.
 
 ## De applicatie
@@ -41,7 +42,7 @@ De database is gemaakt met het singleton design pattern
 ### Factory
 Factory wordt op een paar plekken gebruikt.
 * Opslaan van gegevens in de database
-* Order status controleren en aanpassen.
+* Order status controleren en aanpassen
 * Bestelling bij leverancier
 
 ### Overig

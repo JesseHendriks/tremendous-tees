@@ -6,11 +6,16 @@ use App\Order\OrderStrategy;
 
 class StartOrderProcess
 {
-    public static function startOrderProcess($order_id)
+    public static function OrderProcess($order_id)
     {
-        $order_status = new OrderStatus($order_id);
+        $orderStatus = OrderStatus::getCurrentOrderStatus($order_id);
 
-        $setStrategy = new OrderStrategy($order_status->getCurrentOrderStatus());
-        $setStrategy->executeOrder($order_id);
+        try {
+            $order = new OrderStrategy($orderStatus);
+            return $order->executeOrder($order_id);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
+
 }

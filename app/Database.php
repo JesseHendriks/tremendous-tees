@@ -7,32 +7,25 @@ use PDOException;
 
 class Database
 {
-    private static $instance = null;
+    protected static $instance = null;
 
-    private function __construct()
+    public static function connect()
     {
         $db_settings = [
             'host' => 'localhost',
             'name' => 'tremendous_tees',
             'user' => 'root',
             'pass' => '',
-            'db_charset' => 'UTF-8',
+            'char' => 'utf8'
         ];
-        try {
-            self::$instance = new PDO('mysql:host=' . $db_settings['host'] . ';dbname=' . $db_settings['name'] . ';charset=utf8',
-                $db_settings['user'], $db_settings['pass']);
-            self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
-            self::$instance->query('SET NAMES utf8');
-            self::$instance->query('SET CHARACTER SET utf8');
-        } catch (PDOException $error) {
-            echo $error->getMessage();
-        }
-    }
 
-    public static function connect()
-    {
-        if (!self::$instance) {
-            self::$instance = new self();
+        if (self::$instance === null) {
+            try {
+                self::$instance = new PDO('mysql:host=' . $db_settings['host'] . ';dbname=' . $db_settings['name'] . ';charset=' . $db_settings['char'],
+                    $db_settings['user'], $db_settings['pass']);
+            } catch (PDOException $e) {
+                self::$instance = null;
+            }
         }
 
         return self::$instance;
