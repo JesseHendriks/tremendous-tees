@@ -35,6 +35,24 @@ De observer zorgt voor het eerste gedeelte van het process.
 * Credit nota en betalingsrecord worden aangemaakt voor de ontwerper
 * Transport wordt besteld
 
+### Singleton
+De database is gemaakt met het singleton design pattern
+
+### Factory
+Factory wordt op een paar plekken gebruikt.
+* Opslaan van gegevens in de database
+* Order status controleren en aanpassen.
+* Bestelling bij leverancier
+
+### Overig
+Verder heb ik zoveel mogelijk extra's geimplementeerd wat we geleerd hebben
+* Gebruik maken van een interface
+* Gebruik maken van een Abstract class
+* Gebruik maken van een trait
+
+### Adapter
+De adapter wordt gebruikt bij het aanleveren van data (bij stap 10)
+
 ## Installeren
 De volgende instructies zijn er om de Tremendous Tees applicatie in gebruik te gaan nemen.
 
