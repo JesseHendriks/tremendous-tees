@@ -29,8 +29,8 @@ class OrderStrategy
         }
     }
 
-    public function executeOrder($order_id)
+    public function executeOrder($order_id, $data)
     {
-        return $this->process->start($order_id);
+        return $this->process->start($order_id, $data);
     }
 }

@@ -14,7 +14,7 @@ class OrderStatus
         $orderObject = new Order();
         $order = $orderObject->getOrderByNumber($order_id);
 
-        return $order['status'];
+        return $order->status;
     }
 
     public static function updateCurrentOrderStatus($order_id, $new_order_status)

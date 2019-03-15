@@ -6,7 +6,7 @@ use App\Workflow;
 
 class OpenOrder implements OrderStrategyInterface
 {
-    public function start($order_id)
+    public function start($order_id, $data)
     {
         $transaction = new Workflow\Transaction;
 
@@ -27,7 +27,7 @@ class OpenOrder implements OrderStrategyInterface
         $transaction->attach($invoice);
         $transaction->attach($transport);
 
-        $transaction->setData($order_id);
+        $transaction->setData($data);
 
         return true;
     }

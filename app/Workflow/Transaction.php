@@ -30,7 +30,7 @@ class Transaction extends WorkflowInterface
 
     public function setData($data)
     {
-        $this->data[] = $data;
+        $this->data = $data;
         $this->execute();
     }
 

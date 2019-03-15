@@ -63,7 +63,29 @@ class Order
             $stmt = $this->database->prepare($query);
             $stmt->execute($data);
 
-            return $stmt->fetch(\PDO::FETCH_ASSOC);
+            return $stmt->fetch(\PDO::FETCH_OBJ);
+        } catch (\Exception $e) {
+            $this->message = $e->getMessage();
+            $this->writeError();
+            return false;
+        }
+    }
+
+    public function getProductsByOrderNumber($order_number)
+    {
+        $data = [
+            'order_number' => $order_number
+        ];
+
+        try {
+            $query = '
+            SELECT o.*, p.* FROM order_products o
+            LEFT JOIN products p ON o.product_code = p.product_code
+            WHERE o.order_number = :order_number';
+            $stmt = $this->database->prepare($query);
+            $stmt->execute($data);
+
+            return $stmt->fetchAll(\PDO::FETCH_OBJ);
         } catch (\Exception $e) {
             $this->message = $e->getMessage();
             $this->writeError();
@@ -109,7 +131,7 @@ class Order
         ];
 
         try {
-            $query = 'INSERT INTO `orders` (order_number, product_code, amount, shirt_size, status) VALUES (:order_number, :product_code, :amount, :shirt_size, :status)';
+            $query = 'INSERT INTO `order_products` (order_number, product_code, amount, shirt_size, status) VALUES (:order_number, :product_code, :amount, :shirt_size, :status)';
             $stmt = $this->database->prepare($query);
             $stmt->execute($data);
 
