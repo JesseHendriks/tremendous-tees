@@ -1,6 +1,6 @@
 Tremedous Tees
 ===================
-Applicatie voor de tremendous tees opdracht.
+Applicatie voor de tremendous tees opdracht. https://workshops.studiokrijst.com/vodafone-ziggo/downloads/vfzg-case-masterclass.pdf
 
 ## De applicatie
 De applicatie gaat er vanuit dat de gebruiker al een account heeft. De applicatie start zodra de betaling ontvangen is.
@@ -29,7 +29,7 @@ Hierbij wordt klantnummer aangegeven en een array van de bestelde producten.
     * Verzendbevestiging wordt naar de klant verstuurd
     * Status wordt aangepast naar DONE
     
-### Workflow Observer
+### Observer
 De observer zorgt voor het eerste gedeelte van het process.
 * Orderbevestiging naar klant mailen
 * Factuur genereren (PDF) en versturen naar de klant
@@ -45,14 +45,17 @@ Factory wordt op een paar plekken gebruikt.
 * Order status controleren en aanpassen
 * Bestelling bij leverancier
 
+### Decorator
+De decorator pattern wordt gebruikt om de voorraad te controleren. Benodigde data wordt toegevoegd en daarmee wordt dan gekeken of het product op voorraad is. Zo niet wordt dit naar de ontwerper verstuurd
+
+### Adapter
+De adapter wordt gebruikt bij het aanleveren van data (bij stap 10)
+
 ### Overig
 Verder heb ik zoveel mogelijk extra's geimplementeerd wat we geleerd hebben
 * Gebruik maken van een interface
 * Gebruik maken van een Abstract class
 * Gebruik maken van een trait
-
-### Adapter
-De adapter wordt gebruikt bij het aanleveren van data (bij stap 10)
 
 ## Installeren
 De volgende instructies zijn er om de Tremendous Tees applicatie in gebruik te gaan nemen.
