@@ -13,5 +13,8 @@
 		<testsuite name="OrderTest">
 			<directory>tests/order</directory>
 		</testsuite>
+		<testsuite name="HelperTests">
+			<directory>tests/helper</directory>
+		</testsuite>
 	</testsuites>
 </phpunit>

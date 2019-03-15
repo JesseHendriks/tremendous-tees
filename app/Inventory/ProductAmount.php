@@ -2,13 +2,14 @@
 
 namespace App\Inventory;
 
-class Product implements ProductInterface
+class ProductAmount extends ProductFeature
 {
-    private $p = [];
+    private $p;
 
     public function addFeature($feature)
     {
-        $this->p['product_number'] = $feature;
+        $this->p = $this->product->getProduct();
+        $this->p['amount'] = $feature;
     }
 
     public function getProduct()

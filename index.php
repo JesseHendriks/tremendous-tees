@@ -4,9 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use App\OrderStatus;
 use App\StartOrderProcess;
-
-use App\Inventory\Product;
-use App\Inventory\ProductSize;
+use App\Inventory\checkInventory;
 
 define('BASE_PATH', __DIR__);
 echo '<h1>Tremendous Tees</h1>';
@@ -59,4 +57,8 @@ echo '<h3>Order proces wordt gestart</h3>';
 StartOrderProcess::OrderProcess($order_number, $orderDetails);
 
 
-echo '<h3>De volgende producten waren niet op voorraad. Deze zijn besteld bij de leverancier</h3>';
+echo '<h3>De volgende producten worden gecontroleerd op voorraad</h3>';
+
+foreach ($orderDetails['products'] as $product) {
+    checkInventory::inStock($product->product_code, $product->shirt_size, $product->amount);
+}

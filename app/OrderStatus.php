@@ -6,9 +6,6 @@ use App\Objects\Order;
 
 class OrderStatus
 {
-    private $orderId;
-    private $order;
-
     public static function getCurrentOrderStatus($order_id)
     {
         $orderObject = new Order();

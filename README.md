@@ -6,7 +6,7 @@ Applicatie voor de tremendous tees opdracht. https://workshops.studiokrijst.com/
 De applicatie gaat er vanuit dat de gebruiker al een account heeft. De applicatie start zodra de betaling ontvangen is.
 
 **Betaling ontvangen**
-Hierbij wordt klantnummer aangegeven en een array van de bestelde producten.
+Hierbij wordt data ontvangen, klantnummer en order gegevens
 
 * Order wordt aangemaakt in de database.
 * OrderStrategy wordt aangeroepen, deze bepaald welke acties er ondernomen moeten worden
@@ -15,13 +15,11 @@ Hierbij wordt klantnummer aangegeven en een array van de bestelde producten.
 
 ### Order strategy
 * OPEN Order
-    * Orderbevestiging wordt verstuurd naar de klant
-    * Factuur wordt aangemaakt en verstuurd naar de klant
-    * Creditnota wordt aangemaakt voor de ontwerper + betaling record wordt aan zijn account toegevoegd
-    * Transport wordt besteld
+    * Roept de Observer aan
     * Factuur wordt aangepast naar PENDING
 * PENDING Order
-    * Leverancier geeft aan dat het product nu op voorraad is
+    * Magazijn wordt gecontroleerd op voorraad. _Functionaliteit werkt helaas nog niet, bedoeling is dat voorraad gecontroleerd wordt, als het op voorraad is wordt de order_product database aangepast van OPEN naar READY, zo niet dan wordt het aangepast naar WAITING_
+    * Er vind controle plaats 
     * Zodra alle producten op voorraad zijn wordt de status aangepast naar COMPLETE
 * COMPLETE Order
     * Verzending wordt uitgevoerd
@@ -31,10 +29,10 @@ Hierbij wordt klantnummer aangegeven en een array van de bestelde producten.
     
 ### Observer
 De observer zorgt voor het eerste gedeelte van het process.
-* Orderbevestiging naar klant mailen
-* Factuur genereren (PDF) en versturen naar de klant
-* Credit nota en betalingsrecord worden aangemaakt voor de ontwerper
-* Transport wordt besteld
+* Orderbevestiging naar klant mailen (stap 5)
+* Factuur genereren (PDF) en versturen naar de klant (stap 6)
+* Credit nota en betalingsrecord worden aangemaakt voor de ontwerper (stap 7)
+* Transport wordt besteld (stap 8)
 
 ### Singleton
 De database is gemaakt met het singleton design pattern
@@ -46,7 +44,7 @@ Factory wordt op een paar plekken gebruikt.
 * Bestelling bij leverancier
 
 ### Decorator
-De decorator pattern wordt gebruikt om de voorraad te controleren. Benodigde data wordt toegevoegd en daarmee wordt dan gekeken of het product op voorraad is. Zo niet wordt dit naar de ontwerper verstuurd
+De decorator pattern wordt gebruikt om de voorraad te controleren. Benodigde data wordt toegevoegd en daarmee wordt dan gekeken of het product op voorraad is. Zo niet wordt dit naar de ontwerper verstuurd (stap 9, stap 10)
 
 ### Adapter
 De adapter wordt gebruikt bij het aanleveren van data (bij stap 10)
